@@ -1,5 +1,1 @@
-<<<<<<< HEAD
-Deneme text içeriği
-=======
 Deneme Text içeriği
->>>>>>> c5432569b42400a1f15735b3b5c0040c626f2413

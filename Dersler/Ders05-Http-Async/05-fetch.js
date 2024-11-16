@@ -7,11 +7,7 @@
 // getTextFile();
 
 // function getJsonFile() {
-<<<<<<< HEAD
-//   fetch("user.json")
-=======
 //   fetch("users.json")
->>>>>>> c5432569b42400a1f15735b3b5c0040c626f2413
 //     .then((response) => response.json())
 //     .then((data) => console.log(data))
 //     .catch((error) => console.error(error));
@@ -19,11 +15,7 @@
 // getJsonFile();
 
 // function getApi() {
-<<<<<<< HEAD
-//   fetch("https://jsonplaceolder.typicode.com/posts")
-=======
 //   fetch("https://jsonplaceholder.typicode.com/posts")
->>>>>>> c5432569b42400a1f15735b3b5c0040c626f2413
 //     .then((response) => response.json())
 //     .then((data) => console.log(data))
 //     .catch((error) => console.error(error));
@@ -31,18 +23,11 @@
 // getApi();
 
 class Request {
-<<<<<<< HEAD
-  get(url) {
-=======
   static get(url) {
->>>>>>> c5432569b42400a1f15735b3b5c0040c626f2413
     return new Promise((resolve, reject) => {
       fetch(url)
         .then((response) => response.json())
         .then((data) => resolve(data))
-<<<<<<< HEAD
-        .catch((error) => reject(error, "Veri Alınamadı"));
-=======
         .catch((error) => reject(error, "Veri alınamadı"));
     });
   }
@@ -82,16 +67,10 @@ class Request {
         .then((response) => response.json())
         .then((data) => resolve("Veri Silme İşlemi Başarılı"))
         .catch((error) => reject(error, "Hata Alındı"));
->>>>>>> c5432569b42400a1f15735b3b5c0040c626f2413
     });
   }
 }
 
-<<<<<<< HEAD
-Request.get("https://jsonplaceolder.typicode.com/posts").then((data) => {
-  console.log(data);
-});
-=======
 // Request.get("https://jsonplaceholder.typicode.com/posts")
 //   .then((data) => console.log(data))
 //   .catch((error) => console.error(error));
@@ -115,4 +94,3 @@ Request.get("https://jsonplaceolder.typicode.com/posts").then((data) => {
 Request.delete("https://jsonplaceholder.typicode.com/posts/2")
   .then((data) => console.log(data))
   .catch((error) => console.error(error));
->>>>>>> c5432569b42400a1f15735b3b5c0040c626f2413

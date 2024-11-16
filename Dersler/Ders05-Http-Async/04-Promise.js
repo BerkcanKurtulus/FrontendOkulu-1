@@ -5,11 +5,7 @@ function getData(data) {
         let result = `Sonuç: ${data * 2}`;
         resolve(result);
       } else {
-<<<<<<< HEAD
-        reject("Lütfen sayi giriniz.");
-=======
         reject("Lütfen bir sayı giriniz.");
->>>>>>> c5432569b42400a1f15735b3b5c0040c626f2413
       }
     }, 2000);
   });
