@@ -5,13 +5,6 @@ const urlElement = document.getElementById("url");
 const cardBody = document.querySelectorAll(".card-body")[1];
 const clear = document.getElementById("clear-films");
 
-// UI Objesi
-const ui = new UI();
-
-// Storage Objesi
-const storage = new Storage();
-
-// Eventler
 eventListeners();
 function eventListeners() {
   form.addEventListener("submit", addFilm);
@@ -22,44 +15,41 @@ function eventListeners() {
 
 function clearAllFilms() {
   if (confirm("Emin misiniz?")) {
-    ui.clearAllFilmsFromUI();
-    storage.clearAllFilmsFromStorage();
-    ui.displayMessage("Tüm Filmler Silindi...", "success");
+    UI.clearAllFilmsFromUI();
+    Storage.clearAllFilmsFromStorage();
+    UI.displayMessage("Tüm filmler silindi.", "success");
   }
 }
 
 function deleteFilm(e) {
   if (e.target.id === "delete-film") {
-    ui.deleteFimFromUI(e.target);
-    storage.deleteFilmsFromStorage(
+    UI.deleteFilmFromUI(e.target);
+    Storage.deleteFilmFromStorage(
       e.target.parentElement.previousElementSibling.previousElementSibling
         .textContent
     );
-    ui.displayMessage("Silme İşlemi Başarılı...", "success");
-  }
-}
-
-function addFilm(e) {
-  e.preventDefault();
-  const title = titleElement.value;
-  const director = directorElement.value;
-  const url = urlElement.value;
-
-  if (title === "" || director === "" || url === "") {
-    // Hata Mesajı
-    ui.displayMessage("Tüm Alanları Doldurunuz...", "danger");
-  } else {
-    // Yeni Film Ekleme
-    const newFilm = new Film(title, director, url);
-    ui.addFilmToUI(newFilm); // Arayüze Film Ekleme
-    storage.addFilmToStorage(newFilm); // Storage'a Film Ekleme
-    // Başarılı Mesajı
-    ui.displayMessage("Film Ekleme İşlemi Başarılı...", "success");
-    ui.clearInputs(titleElement, directorElement, urlElement); // Inputları Temizleme
+    UI.displayMessage("Film başarıyla silindi.", "success");
   }
 }
 
 function loadAllFilms() {
-  let films = storage.getFilmsFromStorage();
-  ui.loadAllFilms(films);
+  let films = Storage.getFilmsFromStorage();
+  UI.loadAllFilms(films);
+}
+
+function addFilm(e) {
+  const title = titleElement.value;
+  const director = directorElement.value;
+  const url = urlElement.value;
+  if (title === "" || director === "" || url === "") {
+    UI.displayMessage("Tüm alanları doldurunuz.", "danger");
+  } else {
+    const newFilm = new Film(title, director, url);
+    UI.addFilmToUI(newFilm);
+    Storage.addFilmToStorage(newFilm);
+    UI.displayMessage("Film başarıyla eklendi.", "success");
+  }
+  UI.clearInputs(titleElement, directorElement, urlElement);
+
+  e.preventDefault();
 }

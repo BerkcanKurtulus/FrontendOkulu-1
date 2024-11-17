@@ -18,6 +18,9 @@
 - [Tailwind](https://tailwindcss.com/docs/installation)
 - [Jsonplaceholder](https://jsonplaceholder.typicode.com)
 - [Json-Server](https://github.com/typicode/json-server)
+- [NodeJS](https://nodejs.org/en)
+- [NodeJS](https://nodejs.org/en)
+- [Bun](https://bun.sh)
 
 
 ## Extra Kaynaklar
