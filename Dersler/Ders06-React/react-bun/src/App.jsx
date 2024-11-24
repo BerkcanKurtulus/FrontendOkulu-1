@@ -1,35 +1,41 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import ListItem from "./components/ListItem.jsx";
+import "./App.css";
+import styled from "styled-components";
+import { useEffect, useState } from "react";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [value, setValue] = useState(0);
+  const students = ["Ali", "Veli", "Ayşe", "Fatma"];
+  const Button1 = styled.button`
+    background-color: red;
+    border-radius: 25px;
+    color: white;
+    padding: 5px 20px;
+  `;
+  const Button2 = styled(Button1)`
+    background-color: blue;
+    font-size: ${(props) => props.size}px;
+  `;
+  useEffect(() => {
+    console.log("Component Yüklendi");
+  }, []);
+  useEffect(() => {
+    console.log("Butona Tıklandı");
+  }, [value]);
 
   return (
     <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+      <ul>
+        <h1>Merhaba Dünya!</h1>
+        {students.map((student, index) => {
+          return <ListItem key={index} student={student} value={value} />;
+        })}
+      </ul>
+      <button onClick={() => setValue(value + 1)}>Arttır</button>
+      <Button1>Styled Button</Button1>
+      <Button2 size="30">Styled Button 2</Button2>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
